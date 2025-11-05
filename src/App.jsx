@@ -1,8 +1,6 @@
-import Homepage from "../../react-worldwise-app/src/pages/Homepage";
+import Homepage from "./pages/homePage";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Homepage />
