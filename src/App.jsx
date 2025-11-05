@@ -4,16 +4,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-<<<<<<< HEAD
       <Homepage></Homepage>
       <h1 className="header_name sixtyfour">Almighty's</h1>
-=======
       <BrowserRouter>
         <Routes>
           <Route index element={<HomePage />} />
         </Routes>
       </BrowserRouter>
->>>>>>> main
     </>
   );
 }
