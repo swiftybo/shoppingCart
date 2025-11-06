@@ -16,7 +16,6 @@
   font-variation-settings: "BLED" 0, "SCAN" 0;
 }
 
-<<<<<<< HEAD
 .productIcon {
   padding: 1rem;
   margin: 1rem;
@@ -51,11 +50,11 @@
 
 .productIcon-stock {
   color: red;
-=======
+}
+
 .shopping-cart {
   display: flex;
   border: solid 1px black;
-<<<<<<< HEAD
   margin-left: auto;
 }
 
@@ -70,7 +69,4 @@
   justify-content: flex-end;
   gap: 8px;
   padding: 16px;
-=======
->>>>>>> main
->>>>>>> 812a8cef22b1738f47e828c0eee98a88d6ce8b8d
 }
