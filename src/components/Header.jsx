@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <div className="header">
       <h1 className="header_name sixtyfour">Almighty's</h1>
       <div className="header-cart-container">
-        <div className="cart-icon">🛒</div>
+        <Link to={"cart"}>
+          <div className="cart-icon">🛒</div>
+        </Link>
         <div className="number-of-items-in-cart">2</div>
       </div>
     </div>
