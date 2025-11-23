@@ -4,7 +4,8 @@ import { useEffect } from "react";
 
 function CartItem({ name, quantity, individualCost }) {
   const [quantityInput, setQuantityInput] = useState(quantity);
-  const { handleIncreaseQuantity, setProductQuantity } = useFood();
+  const { handleIncreaseQuantity, setProductQuantity, handleDecreaseQuantity } =
+    useFood();
 
   const totalCost = individualCost * quantity;
 
@@ -36,14 +37,7 @@ function CartItem({ name, quantity, individualCost }) {
         <span>£{totalCost}</span>
       </div>
       <div className="quantity-column">
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            handleIncreaseQuantity(name);
-          }}
-        >
-          +
-        </button>
+        <button onClick={() => handleIncreaseQuantity(name)}>+</button>
         <input
           onKeyDown={handleUpdateQuantity}
           onChange={handleQuantity}
@@ -51,7 +45,7 @@ function CartItem({ name, quantity, individualCost }) {
           value={quantityInput}
           min="0"
         />
-        <button>-</button>
+        <button onClick={() => handleDecreaseQuantity(name)}>-</button>
       </div>
     </div>
   );

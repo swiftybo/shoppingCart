@@ -96,3 +96,7 @@ ol {
 }
 
 /* */
+
+button {
+  cursor: pointer;
+}
