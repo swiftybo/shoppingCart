@@ -61,8 +61,9 @@ function FoodProvider({ children }) {
   // const handleAddToCart
 
   // Adds a new object of a product to the shopping cart state
-  function handleAddToCart() {
-    dispatch({ type: "add_product", payload: "apple" });
+  function handleAddToCart(product) {
+    dispatch({ type: "add_product", payload: product });
+    console.log(cart);
   }
 
   // Increases quantity of existing products in the shopping cart state
