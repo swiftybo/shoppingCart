@@ -2,11 +2,10 @@ import { createContext, useContext, useReducer } from "react";
 
 const FoodContext = createContext();
 
-  const initialState = [
+const initialState = [
   { productName: "Leek", quantity: 2 },
   { productName: "Broccoli", quantity: 5 },
 ];
-
 
 function reducer(state, action) {
   switch (action.type) {
@@ -37,11 +36,12 @@ function reducer(state, action) {
 }
 
 function FoodProvider({ children }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   // TODO: create constants below:
   // const handleAddToCart
-  
-    // Adds a new object of a product to the shopping cart state
+
+  // Adds a new object of a product to the shopping cart state
   function handleAddToCart() {
     dispatch({ type: "add_product", payload: "apple" });
   }
@@ -51,7 +51,7 @@ function FoodProvider({ children }) {
     dispatch({ type: "increase_quantity", payload: product });
   }
 
-  return <FoodContext.Provider value={}>{children}</FoodContext.Provider>
+  return <FoodContext.Provider>{children}</FoodContext.Provider>;
 }
 
 function useFood() {

@@ -14,8 +14,6 @@ const catalogue = [
 ];
 
 function ProductList() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
   return (
     <>
       {catalogue.map((food) => (
@@ -23,10 +21,10 @@ function ProductList() {
           name={food.name}
           stock={food.stock}
           price={food.price}
-          handleClick={() => handleIncreaseQuantity(food.name)}
+          // handleClick={() => handleIncreaseQuantity(food.name)}
         ></ProductItem>
       ))}
-      <div>You have {state[0]?.quantity} apples in your cart!</div>
+      {/* <div>You have {state[0]?.quantity} apples in your cart!</div> */}
     </>
   );
 }
