@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useFood } from "../contexts/FoodContext";
+import { useEffect } from "react";
 
-function CartItem({ name, quantity }) {
+function CartItem({ name, quantity, individualCost }) {
   const [quantityInput, setQuantityInput] = useState(quantity);
+  const { handleIncreaseQuantity, setProductQuantity } = useFood();
 
-  const totalCost = quantityInput;
+  const totalCost = individualCost * quantity;
 
   function handleQuantity(e) {
     if (e.target.value < 0) {
@@ -13,21 +16,42 @@ function CartItem({ name, quantity }) {
     }
   }
 
+  function handleUpdateQuantity(e) {
+    if (e.key === "Enter") {
+      setProductQuantity(name, Number(e.target.value));
+      console.log("test");
+    }
+  }
+
+  // Update the input field when quantity changes (e.g. when the user presses the + or - minus buttons)
+  useEffect(() => {
+    setQuantityInput(quantity);
+  }, [quantity]);
+
   return (
     <div className="cartProduct-item">
       <span>{name}</span>
       <span>-</span>
-      <div className="price-column">{/* <span>£{productCost}</span> */}</div>
+      <div className="total-column">
+        <span>£{totalCost}</span>
+      </div>
       <div className="quantity-column">
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            handleIncreaseQuantity(name);
+          }}
+        >
+          +
+        </button>
         <input
+          onKeyDown={handleUpdateQuantity}
           onChange={handleQuantity}
           type="number"
           value={quantityInput}
           min="0"
         />
-      </div>
-      <div className="total-column">
-        <span>£{totalCost}</span>
+        <button>-</button>
       </div>
     </div>
   );

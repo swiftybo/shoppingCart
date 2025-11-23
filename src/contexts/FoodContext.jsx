@@ -16,14 +16,35 @@ function reducer(state, action) {
       // Iterates through the shopping cart state array to find a match for a specific product, e.g. apple
       const newState = state.map((product) => {
         if (product.productName === action.payload) {
-          // Updates the quantity of the desired product
-          return { ...product, quantity: product.quantity + 1 };
-          // For all items in the shopping cart array, dont do any changes
+          // Updates the quantity of the desired product by 1
+          return {
+            ...product,
+            quantity: product.quantity + 1,
+          };
+          // For all other items in the shopping cart array, dont do any changes
         } else {
           return product;
         }
       });
       // return the new state of the shopping cart with quantity increased for a specific product
+      return newState;
+    }
+    case "set_product_quantity": {
+      // Iterates through the shopping cart state array to find a match for a specific product, e.g. apple
+      const newState = state.map((product) => {
+        if (product.productName === action.payload.name) {
+          // Updates the quantity of the desired product to the set amount
+          console.log(action.payload.newQuantity);
+          return {
+            ...product,
+            quantity: action.payload.newQuantity,
+          };
+          // For all other items in the shopping cart array, dont do any changes
+        } else {
+          return product;
+        }
+      });
+      // return the new state of the shopping cart with the new quantity for a specific product
       return newState;
     }
 
@@ -50,9 +71,21 @@ function FoodProvider({ children }) {
     dispatch({ type: "increase_quantity", payload: product });
   }
 
+  function setProductQuantity(product, quantity) {
+    dispatch({
+      type: "set_product_quantity",
+      payload: { name: product, newQuantity: quantity },
+    });
+  }
+
   return (
     <FoodContext.Provider
-      value={{ cart, handleAddToCart, handleIncreaseQuantity }}
+      value={{
+        cart,
+        handleAddToCart,
+        handleIncreaseQuantity,
+        setProductQuantity,
+      }}
     >
       {children}
     </FoodContext.Provider>

@@ -2,9 +2,7 @@ import { useFood } from "../contexts/FoodContext";
 import CartItem from "./CartItem";
 
 function Cart() {
-  const { cart } = useFood();
-  const food = useFood();
-  console.log(food);
+  const { cart, setProductQuantity } = useFood();
 
   return (
     <>
@@ -15,20 +13,18 @@ function Cart() {
         <h1>Total Price</h1>
       </div>
 
-      <form>
-        <ol className="shopping-cart">
-          {cart.map((cartItem) => (
-            <li>
-              <CartItem
-                key={cartItem.productName}
-                name={cartItem.productName}
-                quantity={cartItem.quantity}
-                individualCost={cartItem.individualCost}
-              />
-            </li>
-          ))}
-        </ol>
-      </form>
+      <ol className="shopping-cart">
+        {cart.map((cartItem) => (
+          <li>
+            <CartItem
+              key={cartItem.productName}
+              name={cartItem.productName}
+              quantity={cartItem.quantity}
+              individualCost={cartItem.individualCost}
+            />
+          </li>
+        ))}
+      </ol>
     </>
   );
 }
