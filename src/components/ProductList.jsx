@@ -32,6 +32,7 @@ function ProductList() {
     <>
       {catalogue.map((food) => (
         <ProductItem
+          key={food.productName}
           name={food.productName}
           stock={food.stock}
           price={food.individualCost}

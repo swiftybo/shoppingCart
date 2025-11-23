@@ -8,10 +8,18 @@ function reducer(state, action) {
   switch (action.type) {
     // Add a new object with the action.payload being the name of the product to the shopping cart state array
     case "add_product":
-      return [...state, { productName: action.payload, quantity: 1 }];
+      return [
+        ...state,
+        {
+          productName: action.payload.name,
+          quantity: 1,
+          individualCost: action.payload.cost,
+        },
+      ];
     case "increase_quantity": {
       // Iterates through the shopping cart state array to find a match for a specific product, e.g. apple
       const newState = state.map((product) => {
+        console.log(product);
         if (product.productName === action.payload) {
           // Updates the quantity of the desired product by 1
           return {
@@ -58,8 +66,11 @@ function FoodProvider({ children }) {
   // const handleAddToCart
 
   // Adds a new object of a product to the shopping cart state
-  function handleAddToCart(product) {
-    dispatch({ type: "add_product", payload: product });
+  function handleAddToCart(product, individualCost) {
+    dispatch({
+      type: "add_product",
+      payload: { name: product, cost: individualCost },
+    });
     console.log(cart);
   }
 
