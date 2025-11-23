@@ -9,6 +9,7 @@ function reducer(state, action) {
     // Add a new object with the action.payload being the name of the product to the shopping cart state array
     case "add_product":
       return [...state, { productName: action.payload, quantity: 1 }];
+    // Increase the cart quantity by using the button
     case "increase_quantity": {
       // Iterates through the shopping cart state array to find a match for a specific product, e.g. apple
       const newState = state.map((product) => {
@@ -17,6 +18,24 @@ function reducer(state, action) {
           return {
             ...product,
             quantity: product.quantity + 1,
+          };
+          // For all other items in the shopping cart array, dont do any changes
+        } else {
+          return product;
+        }
+      });
+      // return the new state of the shopping cart with quantity increased for a specific product
+      return newState;
+    }
+    // Decrease the cart quantity by using the button
+    case "decrease": {
+      // Iterates through the shopping cart state array to find a match for a specific product, e.g. apple
+      const newState = state.map((product) => {
+        if (product.productName === action.payload) {
+          // Updates the quantity of the desired product by 1
+          return {
+            ...product,
+            quantity: product.quantity - 1,
           };
           // For all other items in the shopping cart array, dont do any changes
         } else {
@@ -68,6 +87,11 @@ function FoodProvider({ children }) {
     dispatch({ type: "increase_quantity", payload: product });
   }
 
+  // Decrease quantity of existing products in the shopping cart state
+  function handleDecreaseQuantity(product) {
+    dispatch({ type: "decrease", payload: product });
+  }
+
   function setProductQuantity(product, quantity) {
     dispatch({
       type: "set_product_quantity",
@@ -82,6 +106,7 @@ function FoodProvider({ children }) {
         handleAddToCart,
         handleIncreaseQuantity,
         setProductQuantity,
+        handleDecreaseQuantity,
       }}
     >
       {children}
