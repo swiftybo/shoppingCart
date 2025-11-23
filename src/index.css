@@ -75,3 +75,24 @@
   gap: 8px;
   padding: 16px;
 }
+
+/* Shopping Cart Page */
+
+.shopping-cart {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-headers {
+  display: flex;
+}
+
+.cartProduct-item {
+  display: flex;
+}
+
+ol {
+  list-style-type: none;
+}
+
+/* */

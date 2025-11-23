@@ -3,8 +3,8 @@ import { createContext, useContext, useReducer } from "react";
 const FoodContext = createContext();
 
 const initialState = [
-  { productName: "Leek", quantity: 2 },
-  { productName: "Broccoli", quantity: 5 },
+  { productName: "Leek", quantity: 2, individualCost: 1 },
+  { productName: "Broccoli", quantity: 5, individualCost: 2 },
 ];
 
 function reducer(state, action) {
@@ -36,8 +36,9 @@ function reducer(state, action) {
 }
 
 function FoodProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [cart, dispatch] = useReducer(reducer, initialState);
 
+  console.log(cart);
   // TODO: create constants below:
   // const handleAddToCart
 
@@ -51,7 +52,13 @@ function FoodProvider({ children }) {
     dispatch({ type: "increase_quantity", payload: product });
   }
 
-  return <FoodContext.Provider>{children}</FoodContext.Provider>;
+  return (
+    <FoodContext.Provider
+      value={{ cart, handleAddToCart, handleIncreaseQuantity }}
+    >
+      {children}
+    </FoodContext.Provider>
+  );
 }
 
 function useFood() {
