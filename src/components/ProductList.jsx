@@ -1,16 +1,30 @@
 import ProductItem from "./ProductItem.jsx";
-import { useReducer } from "react";
 
 const catalogue = [
   {
-    name: "Broccoli",
-    stock: 5,
-    price: 1.5,
+    productName: "Leek",
+    stock: 8,
+    individualCost: 0.9,
     category: "vegetable",
   },
-  { name: "Golden Kiwi", stock: 8, price: 1.85, category: "fruit" },
-  { name: "Croissant", stock: 20, price: 1.1, category: "bread" },
-  { name: "Leek", stock: 4, price: 0.9, category: "vegetable" },
+  {
+    productName: "Broccoli",
+    stock: 15,
+    individualCost: 1.5,
+    category: "vegetable",
+  },
+  {
+    productName: "Golden Kiwi",
+    stock: 8,
+    individualCost: 2.15,
+    category: "fruit",
+  },
+  {
+    productName: "Croissant",
+    stock: 20,
+    individualCost: 0.5,
+    category: "bread",
+  },
 ];
 
 function ProductList() {
@@ -18,10 +32,9 @@ function ProductList() {
     <>
       {catalogue.map((food) => (
         <ProductItem
-          name={food.name}
+          name={food.productName}
           stock={food.stock}
-          price={food.price}
-          // handleClick={() => handleIncreaseQuantity(food.name)}
+          price={food.individualCost}
         ></ProductItem>
       ))}
       {/* <div>You have {state[0]?.quantity} apples in your cart!</div> */}

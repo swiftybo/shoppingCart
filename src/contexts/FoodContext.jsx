@@ -2,10 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 
 const FoodContext = createContext();
 
-const initialState = [
-  { productName: "Leek", quantity: 2, individualCost: 1 },
-  { productName: "Broccoli", quantity: 5, individualCost: 2 },
-];
+const initialState = [];
 
 function reducer(state, action) {
   switch (action.type) {
