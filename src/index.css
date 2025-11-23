@@ -50,11 +50,11 @@
 
 .productIcon-stock {
   color: red;
-<<<<<<< HEAD
+}
+
 .shopping-cart {
   display: flex;
   border: solid 1px black;
-=======
 }
 
 .shopping-cart {
@@ -74,5 +74,4 @@
   justify-content: flex-end;
   gap: 8px;
   padding: 16px;
->>>>>>> b9a8c496f7d01c5091e16c21409f4a7e651551c8
 }
