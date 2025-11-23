@@ -3,6 +3,8 @@ import CartItem from "./CartItem";
 
 function Cart() {
   const { cart } = useFood();
+  const food = useFood();
+  console.log(food);
 
   return (
     <>
