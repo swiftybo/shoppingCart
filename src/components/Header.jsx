@@ -7,9 +7,9 @@ function Header() {
         <h1 className="header_name sixtyfour">Almighty's</h1>
       </NavLink>
       <div className="header-cart-container">
-        <Link to={"cart"}>
+        <NavLink to={"/cart"}>
           <div className="cart-icon">🛒</div>
-        </Link>
+        </NavLink>
         <div className="number-of-items-in-cart">2</div>
       </div>
     </div>
