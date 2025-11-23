@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <div className="header">
-      <h1 className="header_name sixtyfour">Almighty's</h1>
+      <NavLink to={"/"} end>
+        <h1 className="header_name sixtyfour">Almighty's</h1>
+      </NavLink>
       <div className="header-cart-container">
         <Link to={"cart"}>
           <div className="cart-icon">🛒</div>
