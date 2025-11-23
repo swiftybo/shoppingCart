@@ -5,6 +5,7 @@ const initialState = [
   { productName: "Leek", quantity: 2 },
   { productName: "Broccoli", quantity: 5 },
 ];
+
 const catalogue = [
   {
     name: "Broccoli",
