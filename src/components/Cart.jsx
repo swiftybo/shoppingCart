@@ -6,7 +6,7 @@ function Cart() {
 
   return (
     <>
-      {cart.length === 0 ? (
+      {cart.length > 0 ? (
         <div className="shopping-page">
           <h2>Shopping Cart:</h2>
           <div className="cart-headers">
@@ -29,7 +29,7 @@ function Cart() {
           </ol>
         </div>
       ) : (
-        <div className="empty-cart">test</div>
+        <div className="empty-cart">Empty</div>
       )}
     </>
   );
