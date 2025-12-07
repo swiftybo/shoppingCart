@@ -30,11 +30,12 @@ const catalogue = [
 function ProductList() {
   return (
     <>
-      {catalogue.map((food) => (
+      {catalogue.map((food, index) => (
         <ProductItem
           name={food.productName}
           stock={food.stock}
           price={food.individualCost}
+          index={index}
         ></ProductItem>
       ))}
       {/* <div>You have {state[0]?.quantity} apples in your cart!</div> */}

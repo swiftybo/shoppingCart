@@ -1,6 +1,6 @@
 import { useFood } from "../contexts/FoodContext";
 
-function ProductItem({ name, stock, price, handleClick }) {
+function ProductItem({ name, stock, price, index, handleClick }) {
   const { cart, handleAddToCart, handleIncreaseQuantity } = useFood();
 
   function addItem(product) {
@@ -12,6 +12,17 @@ function ProductItem({ name, stock, price, handleClick }) {
     }
   }
 
+  function calculateRemainingStock() {
+    const initialStock = stock
+    let amountInCart = 0
+    if (cart.length > 0 && cart[index]?.quantity) {
+      amountInCart = cart[index].quantity
+    }
+    return stock - amountInCart
+  }
+
+  const remainingStock = calculateRemainingStock()
+
   return (
     <section className="productIcon">
       <div className="productIcon-left">
@@ -22,8 +33,12 @@ function ProductItem({ name, stock, price, handleClick }) {
         <button className="productIcon_btn" onClick={() => addItem(name)}>
           Add to Cart
         </button>
-        {stock <= 5 && (
-          <div className="productIcon-stock">Almost Gone! Stock: {stock}</div>
+        <p>{`Stock: ${remainingStock}`}</p>
+        {remainingStock <= 5 && remainingStock > 2 && (
+          <div className="productIcon-stock">Almost Gone!</div>
+        )}
+        {remainingStock <= 2 && (
+          <div className="productIcon-stock">Last Few in Stock!</div>
         )}
       </div>
     </section>
