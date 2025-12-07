@@ -33,9 +33,12 @@ function ProductItem({ name, stock, price, index, handleClick }) {
         <button className="productIcon_btn" onClick={() => addItem(name)}>
           Add to Cart
         </button>
-        <p>{remainingStock}</p>
-        {stock <= 5 && (
-          <div className="productIcon-stock">Almost Gone! Stock: {stock}</div>
+        <p>{`Stock: ${remainingStock}`}</p>
+        {remainingStock <= 5 && remainingStock > 2 && (
+          <div className="productIcon-stock">Almost Gone!</div>
+        )}
+        {remainingStock <= 2 && (
+          <div className="productIcon-stock">Last Few in Stock!</div>
         )}
       </div>
     </section>
