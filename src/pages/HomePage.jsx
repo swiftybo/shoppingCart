@@ -1,11 +1,11 @@
 import Header from "../components/Header";
 import ProductList from "../components/ProductList";
 
-export default function HomePage() {
+export default function HomePage({ productList }) {
   return (
     <>
       <Header />
-      <ProductList />
+      <ProductList productList={productList} />
     </>
   );
 }

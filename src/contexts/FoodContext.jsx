@@ -72,7 +72,6 @@ function reducer(state, action) {
 function FoodProvider({ children }) {
   const [cart, dispatch] = useReducer(reducer, initialState);
 
-  console.log(cart);
   // TODO: create constants below:
   // const handleAddToCart
 

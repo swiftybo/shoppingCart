@@ -27,14 +27,15 @@ const catalogue = [
   },
 ];
 
-function ProductList() {
+function ProductList({ productList }) {
   return (
     <>
-      {catalogue.map((food, index) => (
+      {productList?.map((food, index) => (
         <ProductItem
-          name={food.productName}
+          name={food.description}
+          brand={food.brandOwner}
           stock={food.stock}
-          price={food.individualCost}
+          // price={food.individualCost}
           index={index}
         ></ProductItem>
       ))}
