@@ -11,6 +11,6 @@ This project displays food items which can be added to a basket. This basket can
 
 ## 📦 Installation
 
-1. **Clone the repository:**
-2. Run "npm install" in the terminal
-3. Run "npm run dev" in the terminal
+1. Clone the repository and download to local machine.
+2. Run "npm install" in the terminal.
+3. Run "npm run dev" in the terminal.
