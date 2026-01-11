@@ -7,7 +7,7 @@ A collaborative project between Christian Yarwood (christianyarwood62) and Jorda
 This project displays food items which can be added to a basket. This basket can be opened in a separate page to view all the products which have been added. Most recently the product list has been updated to come from the US Department of Agriculture API. (This change has broken some of the features in the web application including stock count & price. Note that the API is currently only searching for "cheese" to limit the number of returned results.)
 
 ## 🛠 Tech Stack
-* **Language:** React, CSS
+* **Languages:** React, CSS
 
 ## 📦 Installation
 
