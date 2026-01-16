@@ -37,6 +37,8 @@ function reducer(state, action) {
       const newState = state.map((product) => {
         if (product.productName === action.payload.productName) {
           // Updates the quantity of the desired product by 1
+          if (product.quantity === 0) return { ...product };
+
           return {
             ...product,
             quantity: product.quantity - 1,
