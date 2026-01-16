@@ -22,7 +22,7 @@ function Cart() {
                   key={cartItem.productName}
                   name={cartItem.productName}
                   quantity={cartItem.quantity}
-                  individualCost={cartItem.individualCost}
+                  individualCost={cartItem.price}
                 />
               </li>
             ))}

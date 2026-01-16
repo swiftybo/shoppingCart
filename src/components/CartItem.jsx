@@ -31,8 +31,9 @@ function CartItem({ name, quantity, individualCost }) {
 
   return (
     <div className="cartProduct-item">
-      <span>{name}</span>
-      <span>-</span>
+      <div>{name}</div>
+      <div>Test £{individualCost}</div>
+      <div>-</div>
       <div className="total-column">
         <span>£{totalCost}</span>
       </div>

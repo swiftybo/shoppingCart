@@ -89,6 +89,7 @@
 
 .cartProduct-item {
   display: flex;
+  border: solid 1px black;
 }
 
 ol {

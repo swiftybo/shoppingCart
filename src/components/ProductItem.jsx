@@ -1,14 +1,25 @@
 import { useFood } from "../contexts/FoodContext";
 
-function ProductItem({ name, brand, stock, price, index, handleClick }) {
+function ProductItem({
+  product,
+  name,
+  brand,
+  stock,
+  price,
+  index,
+  handleClick,
+}) {
   const { cart, handleAddToCart, handleIncreaseQuantity } = useFood();
 
   function addItem(product) {
-    const itemAlreadyExists = cart.some((item) => item.productName === product);
+    const itemAlreadyExists = cart.some(
+      (item) => item.productName === product.description
+    );
     if (itemAlreadyExists) {
       handleIncreaseQuantity(product);
     } else {
       handleAddToCart(product);
+      console.log(product);
     }
   }
 
@@ -31,7 +42,7 @@ function ProductItem({ name, brand, stock, price, index, handleClick }) {
         {/* <div style={{ fontSize: "1.2rem" }}>${price.toFixed(2)}</div> */}
       </div>
       <div className="productIcon-right">
-        <button className="productIcon_btn" onClick={() => addItem(name)}>
+        <button className="productIcon_btn" onClick={() => addItem(product)}>
           Add to Cart
         </button>
         <p>{`Stock: ${remainingStock}`}</p>
