@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFood } from "../contexts/FoodContext";
 import { useEffect } from "react";
 
-function CartItem({ name, quantity, individualCost }) {
+function CartItem({ item, name, quantity, individualCost }) {
   const [quantityInput, setQuantityInput] = useState(quantity);
   const { handleIncreaseQuantity, setProductQuantity, handleDecreaseQuantity } =
     useFood();
@@ -38,7 +38,7 @@ function CartItem({ name, quantity, individualCost }) {
         <span>£{totalCost}</span>
       </div>
       <div className="quantity-column">
-        <button onClick={() => handleIncreaseQuantity(name)}>+</button>
+        <button onClick={() => handleIncreaseQuantity(item)}>+</button>
         <input
           onKeyDown={handleUpdateQuantity}
           onChange={handleQuantity}
@@ -46,7 +46,7 @@ function CartItem({ name, quantity, individualCost }) {
           value={quantityInput}
           min="0"
         />
-        <button onClick={() => handleDecreaseQuantity(name)}>-</button>
+        <button onClick={() => handleDecreaseQuantity(item)}>-</button>
       </div>
     </div>
   );
