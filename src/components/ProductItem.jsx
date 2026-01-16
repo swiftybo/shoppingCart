@@ -49,8 +49,11 @@ function ProductItem({ name, brand, stock, price, index, handleClick }) {
                 {remainingStock <= 5 && remainingStock > 2 && (
                     <div className="productIcon-stock">Almost Gone!</div>
                 )}
-                {remainingStock <= 2 && (
+                {remainingStock <= 2 && remainingStock > 0 && (
                     <div className="productIcon-stock">Last Few in Stock!</div>
+                )}
+                {remainingStock === 0 && (
+                    <div className="productIcon-stock">Out of Stock!</div>
                 )}
             </div>
         </section>
