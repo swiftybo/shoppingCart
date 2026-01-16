@@ -4,14 +4,16 @@ function ProductItem({ name, brand, stock, product }) {
     const { cart, handleAddToCart, handleIncreaseQuantity } = useFood();
 
     function addItem(product) {
-        const itemAlreadyExists = cart.some(
-            (item) => item.productName === product.description
-        );
+        console.log(cart);
+        const itemAlreadyExists = cart.some((item) => {
+            return item.productName === product.description;
+        });
         if (itemAlreadyExists) {
             handleIncreaseQuantity(product);
+            console.log("increase");
         } else {
             handleAddToCart(product);
-            console.log(product);
+            console.log("add");
         }
     }
 
