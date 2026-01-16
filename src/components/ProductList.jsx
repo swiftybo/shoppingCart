@@ -30,14 +30,16 @@ const catalogue = [
 function ProductList({ productList }) {
   return (
     <>
-      {productList?.map((food, index) => (
+      {productList?.map((product, index) => (
         <ProductItem
-          name={food.description}
-          brand={food.brandOwner}
-          stock={food.stock}
-          // price={food.individualCost}
+          product={product}
+          key={productList[index].fdcId}
+          name={product.description}
+          brand={product.brandOwner}
+          stock={product.stock}
+          price={product.individualCost}
           index={index}
-        ></ProductItem>
+        />
       ))}
       {/* <div>You have {state[0]?.quantity} apples in your cart!</div> */}
     </>

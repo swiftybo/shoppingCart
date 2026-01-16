@@ -17,14 +17,13 @@ function Cart() {
 
           <ol className="shopping-cart">
             {cart.map((cartItem) => (
-              <li>
-                <CartItem
-                  key={cartItem.productName}
-                  name={cartItem.productName}
-                  quantity={cartItem.quantity}
-                  individualCost={cartItem.individualCost}
-                />
-              </li>
+              <CartItem
+                item={cartItem}
+                key={cartItem.productName}
+                name={cartItem.productName}
+                quantity={cartItem.quantity}
+                individualCost={cartItem.price}
+              />
             ))}
           </ol>
         </div>
