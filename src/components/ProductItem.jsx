@@ -1,17 +1,25 @@
 import { useFood } from "../contexts/FoodContext";
 
-function ProductItem({ name, brand, stock, price, index, handleClick }) {
-    const { cart, handleAddToCart, handleIncreaseQuantity } = useFood();
+function ProductItem({
+  product,
+  name,
+  brand,
+  stock,
+  price,
+  index,
+  handleClick,
+}) {
+  const { cart, handleAddToCart, handleIncreaseQuantity } = useFood();
 
-    function addItem(product) {
-        const itemAlreadyExists = cart.some(
-            (item) => item.productName === product
-        );
-        if (itemAlreadyExists) {
-            handleIncreaseQuantity(product);
-        } else {
-            handleAddToCart(product);
-        }
+  function addItem(product) {
+    const itemAlreadyExists = cart.some(
+      (item) => item.productName === product.description
+    );
+    if (itemAlreadyExists) {
+      handleIncreaseQuantity(product);
+    } else {
+      handleAddToCart(product);
+      console.log(product);
     }
 
     // This function takes the stock from state and calculates a derived state of
@@ -30,34 +38,27 @@ function ProductItem({ name, brand, stock, price, index, handleClick }) {
 
     const remainingStock = calculateRemainingStock();
 
-    return (
-        <section className="productIcon">
-            <div className="productIcon-left">
-                <h2>{name}</h2>
-                <h3>{brand}</h3>
-                {/* <div style={{ fontSize: "1.2rem" }}>${price.toFixed(2)}</div> */}
-            </div>
-            <div className="productIcon-right">
-                <button
-                    disabled={remainingStock === 0}
-                    className="productIcon_btn"
-                    onClick={() => addItem(name)}
-                >
-                    Add to Cart
-                </button>
-                <p>{`Stock: ${remainingStock}`}</p>
-                {remainingStock <= 5 && remainingStock > 2 && (
-                    <div className="productIcon-stock">Almost Gone!</div>
-                )}
-                {remainingStock <= 2 && remainingStock > 0 && (
-                    <div className="productIcon-stock">Last Few in Stock!</div>
-                )}
-                {remainingStock === 0 && (
-                    <div className="productIcon-stock">Out of Stock!</div>
-                )}
-            </div>
-        </section>
-    );
+  return (
+    <section className="productIcon">
+      <div className="productIcon-left">
+        <h2>{name}</h2>
+        <h3>{brand}</h3>
+        {/* <div style={{ fontSize: "1.2rem" }}>${price.toFixed(2)}</div> */}
+      </div>
+      <div className="productIcon-right">
+        <button className="productIcon_btn" onClick={() => addItem(product)}>
+          Add to Cart
+        </button>
+        <p>{`Stock: ${remainingStock}`}</p>
+        {remainingStock <= 5 && remainingStock > 2 && (
+          <div className="productIcon-stock">Almost Gone!</div>
+        )}
+        {remainingStock <= 2 && (
+          <div className="productIcon-stock">Last Few in Stock!</div>
+        )}
+      </div>
+    </section>
+  );
 }
 
 export default ProductItem;

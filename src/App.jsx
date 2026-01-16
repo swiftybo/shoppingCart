@@ -11,13 +11,16 @@ import { useState } from "react";
 function App() {
     const [productList, setProductList] = useState([]);
 
-    useEffect(() => {
-        async function getFood() {
-            const food = await fetchFood();
-            food.map((foodItem) => (foodItem.stock = 10));
-            setProductList(food);
-            console.log(food);
-        }
+  useEffect(() => {
+    async function getFood() {
+      const food = await fetchFood();
+      food.map((foodItem) => {
+        foodItem.individualCost = 2;
+        foodItem.stock = Math.floor(Math.random() * 10) + 1;
+      });
+      setProductList(food);
+      console.log(food);
+    }
 
         getFood();
     }, []);
