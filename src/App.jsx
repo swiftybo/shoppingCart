@@ -9,7 +9,7 @@ import { fetchFood } from "./Services/foodAPI";
 import { useState } from "react";
 
 function App() {
-  const [productList, setProductList] = useState([]);
+    const [productList, setProductList] = useState([]);
 
   useEffect(() => {
     async function getFood() {
@@ -22,22 +22,25 @@ function App() {
       console.log(food);
     }
 
-    getFood();
-  }, []);
+        getFood();
+    }, []);
 
-  return (
-    <>
-      <FoodProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route index element={<HomePage productList={productList} />} />
-            <Route path="cart" element={<ShoppingCartPage />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </BrowserRouter>
-      </FoodProvider>
-    </>
-  );
+    return (
+        <>
+            <FoodProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route
+                            index
+                            element={<HomePage productList={productList} />}
+                        />
+                        <Route path="cart" element={<ShoppingCartPage />} />
+                        <Route path="*" element={<ErrorPage />} />
+                    </Routes>
+                </BrowserRouter>
+            </FoodProvider>
+        </>
+    );
 }
 
 export default App;
