@@ -39,6 +39,7 @@ function ProductItem({ name, brand, stock, price, index, handleClick }) {
             </div>
             <div className="productIcon-right">
                 <button
+                    disabled={remainingStock === 0}
                     className="productIcon_btn"
                     onClick={() => addItem(name)}
                 >
