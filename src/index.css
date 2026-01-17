@@ -147,6 +147,10 @@ ol {
   display: flex;
   justify-content: space-between;
 }
+
+.no-stock-div {
+  color: red;
+}
 /* */
 
 .text-normal {

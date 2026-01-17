@@ -1,11 +1,11 @@
 import Cart from "../components/Cart";
 import Header from "../components/Header";
 
-function ShoppingCartPage() {
+function ShoppingCartPage({ productList }) {
   return (
     <div>
       <Header />
-      <Cart />
+      <Cart productList={productList} />
     </div>
   );
 }

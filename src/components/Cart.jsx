@@ -2,15 +2,15 @@ import { useNavigate } from "react-router-dom";
 import { useFood } from "../contexts/FoodContext";
 import CartItem from "./CartItem";
 
-function Cart() {
+function Cart({ productList }) {
   const { cart } = useFood();
+
+  const navigate = useNavigate();
 
   const totalCost = cart.reduce(
     (acc, element) => acc + element.price * element.quantity,
     0
   );
-
-  const navigate = useNavigate();
 
   return (
     <>
@@ -31,6 +31,11 @@ function Cart() {
                 name={cartItem.productName}
                 quantity={cartItem.quantity}
                 individualCost={cartItem.price}
+                productStock={
+                  productList.filter(
+                    (product) => product.description === cartItem.productName
+                  )[0].stock
+                }
               />
             ))}
           </ol>
