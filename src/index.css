@@ -3,9 +3,12 @@
 }
 
 * {
-  font-family: "Rubik" "Inter" "Poppins";
+  font-family: "Inter", "Poppins", "Rubik";
 }
 
+h2 {
+  font-size: 32px;
+}
 .productIcon {
   padding: 1rem;
   margin: 1rem;
@@ -115,9 +118,13 @@ ol {
   border-radius: 5px;
 }
 
+.cart-button:hover {
+  background-color: rgb(224, 224, 224);
+}
+
 .cart-total-item-cost {
   width: 30px;
-  padding-left: 50px;
+  padding: 0 25px;
 }
 
 .divider {
@@ -137,7 +144,7 @@ button {
 }
 
 .text-normal {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .color-grey {

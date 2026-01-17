@@ -13,20 +13,20 @@ function CartItem({ item, name, quantity, individualCost }) {
     if (e.target.value < 0) {
       setQuantityInput(0);
     } else {
-      setQuantityInput(e.target.value);
+      setQuantityInput(Number(e.target.value));
     }
   }
 
   function handleUpdateQuantity(e) {
     if (e.key === "Enter") {
       setProductQuantity(name, Number(e.target.value));
-      console.log("test");
+      e.target.blur();
     }
   }
 
   // Update the input field when quantity changes (e.g. when the user presses the + or - minus buttons)
   useEffect(() => {
-    setQuantityInput(quantity);
+    setQuantityInput(Number(quantity));
   }, [quantity]);
 
   return (
@@ -46,6 +46,7 @@ function CartItem({ item, name, quantity, individualCost }) {
           className="text-normal cart-item-quantity"
           onKeyDown={handleUpdateQuantity}
           onChange={handleQuantity}
+          onBlur={(e) => setProductQuantity(name, Number(e.target.value))}
           type="text"
           value={quantityInput}
           min="0"
