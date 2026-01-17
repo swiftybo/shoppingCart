@@ -20,7 +20,7 @@ function CartItem({ item, name, quantity, individualCost }) {
   function handleUpdateQuantity(e) {
     if (e.key === "Enter") {
       setProductQuantity(name, Number(e.target.value));
-      console.log("test");
+      e.target.blur();
     }
   }
 
@@ -46,6 +46,7 @@ function CartItem({ item, name, quantity, individualCost }) {
           className="text-normal cart-item-quantity"
           onKeyDown={handleUpdateQuantity}
           onChange={handleQuantity}
+          onBlur={(e) => setProductQuantity(name, e.target.value)}
           type="text"
           value={quantityInput}
           min="0"
