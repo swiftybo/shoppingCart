@@ -58,6 +58,17 @@ h2 {
   padding: 16px;
 }
 
+.product-list-button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.product-list-button:hover {
+  background-color: rgb(42, 42, 42);
+}
+
 /* Shopping Cart Page */
 
 .shopping-page {
@@ -88,9 +99,6 @@ h2 {
 
 ol {
   list-style-type: none;
-}
-
-.cart-item-details {
 }
 
 .cart-product-numbers {

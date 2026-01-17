@@ -39,7 +39,10 @@ function ProductItem({ name, brand, stock, product }) {
         <h3>{brand}</h3>
       </div>
       <div className="productIcon-right">
-        <button className="productIcon_btn" onClick={() => addItem(product)}>
+        <button
+          className="productIcon_btn product-list-button"
+          onClick={() => addItem(product)}
+        >
           Add to Cart
         </button>
         <p>{`Stock: ${remainingStock}`}</p>
