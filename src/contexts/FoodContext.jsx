@@ -18,6 +18,7 @@ function reducer(state, action) {
       // Iterates through the shopping cart state array to find a match for a specific product, e.g. apple
       const newState = state.map((product) => {
         if (product.productName === action.payload.productName) {
+          console.log(action.payload);
           // Updates the quantity of the desired product by 1
           return {
             ...product,
