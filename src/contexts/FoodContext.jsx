@@ -5,12 +5,15 @@ const FoodContext = createContext();
 const initialState = [];
 
 function reducer(state, action) {
-  const { description } = action.payload;
+  const { description, individualCost } = action.payload;
   console.log(action.payload);
   switch (action.type) {
     // Add a new object with the action.payload being the name of the product to the shopping cart state array
     case "add_product":
-      return [...state, { productName: description, quantity: 1, price: 2 }];
+      return [
+        ...state,
+        { productName: description, quantity: 1, price: individualCost },
+      ];
 
     // Increase the cart quantity by using the button
     case "increase_quantity": {

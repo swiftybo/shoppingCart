@@ -9,38 +9,36 @@ import { fetchFood } from "./Services/foodAPI";
 import { useState } from "react";
 
 function App() {
-    const [productList, setProductList] = useState([]);
+  const [productList, setProductList] = useState([]);
 
   useEffect(() => {
     async function getFood() {
       const food = await fetchFood();
-      food.map((foodItem) => {
-        foodItem.individualCost = 2;
-        foodItem.stock = Math.floor(Math.random() * 10) + 1;
-      });
-      setProductList(food);
-      console.log(food);
+      const newFood = food.map((foodItem) => ({
+        ...foodItem,
+        individualCost: Math.floor(Math.random() * 10) + 1,
+        stock: Math.floor(Math.random() * 10) + 1,
+      }));
+      setProductList(newFood);
+      console.log(newFood);
     }
 
-        getFood();
-    }, []);
+    getFood();
+  }, []);
 
-    return (
-        <>
-            <FoodProvider>
-                <BrowserRouter>
-                    <Routes>
-                        <Route
-                            index
-                            element={<HomePage productList={productList} />}
-                        />
-                        <Route path="cart" element={<ShoppingCartPage />} />
-                        <Route path="*" element={<ErrorPage />} />
-                    </Routes>
-                </BrowserRouter>
-            </FoodProvider>
-        </>
-    );
+  return (
+    <>
+      <FoodProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<HomePage productList={productList} />} />
+            <Route path="cart" element={<ShoppingCartPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </BrowserRouter>
+      </FoodProvider>
+    </>
+  );
 }
 
 export default App;
