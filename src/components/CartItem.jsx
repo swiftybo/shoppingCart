@@ -40,7 +40,7 @@ function CartItem({ item, name, quantity, individualCost }) {
           className="cart-button"
           onClick={() => handleDecreaseQuantity(item)}
         >
-          -
+          {quantity === 1 ? "Remove" : "-"}
         </button>
         <input
           className="text-normal cart-item-quantity"
