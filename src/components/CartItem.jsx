@@ -31,22 +31,32 @@ function CartItem({ item, name, quantity, individualCost }) {
 
   return (
     <div className="cartProduct-item">
-      <div>{name}</div>
-      <div>Test £{individualCost}</div>
-      <div>-</div>
-      <div className="total-column">
-        <span>£{totalCost}</span>
+      <div className="cart-item-details">
+        <h3>{name}</h3>
+        <p className="color-grey">£{individualCost} each</p>
       </div>
-      <div className="quantity-column">
-        <button onClick={() => handleIncreaseQuantity(item)}>+</button>
+      <div className="cart-product-numbers">
+        <button
+          className="cart-button"
+          onClick={() => handleDecreaseQuantity(item)}
+        >
+          -
+        </button>
         <input
+          className="text-normal cart-item-quantity"
           onKeyDown={handleUpdateQuantity}
           onChange={handleQuantity}
-          type="number"
+          type="text"
           value={quantityInput}
           min="0"
         />
-        <button onClick={() => handleDecreaseQuantity(item)}>-</button>
+        <button
+          className="cart-button"
+          onClick={() => handleIncreaseQuantity(item)}
+        >
+          +
+        </button>
+        <p className="text-normal cart-total-item-cost">£{totalCost}</p>
       </div>
     </div>
   );

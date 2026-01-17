@@ -31,30 +31,26 @@ function ProductItem({ name, brand, stock, product }) {
 
     const remainingStock = calculateRemainingStock();
 
-    return (
-        <section className="productIcon">
-            <div className="productIcon-left">
-                <h2>{name}</h2>
-                <h3>{brand}</h3>
-                {/* <div style={{ fontSize: "1.2rem" }}>${price.toFixed(2)}</div> */}
-            </div>
-            <div className="productIcon-right">
-                <button
-                    className="productIcon_btn"
-                    onClick={() => addItem(product)}
-                >
-                    Add to Cart
-                </button>
-                <p>{`Stock: ${remainingStock}`}</p>
-                {remainingStock <= 5 && remainingStock > 2 && (
-                    <div className="productIcon-stock">Almost Gone!</div>
-                )}
-                {remainingStock <= 2 && (
-                    <div className="productIcon-stock">Last Few in Stock!</div>
-                )}
-            </div>
-        </section>
-    );
+  return (
+    <section className="productIcon">
+      <div className="productIcon-left">
+        <h2>{name}</h2>
+        <h3>{brand}</h3>
+      </div>
+      <div className="productIcon-right">
+        <button className="productIcon_btn" onClick={() => addItem(product)}>
+          Add to Cart
+        </button>
+        <p>{`Stock: ${remainingStock}`}</p>
+        {remainingStock <= 5 && remainingStock > 2 && (
+          <div className="productIcon-stock">Almost Gone!</div>
+        )}
+        {remainingStock <= 2 && (
+          <div className="productIcon-stock">Last Few in Stock!</div>
+        )}
+      </div>
+    </section>
+  );
 }
 
 export default ProductItem;
