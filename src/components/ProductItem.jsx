@@ -1,32 +1,35 @@
 import { useFood } from "../contexts/FoodContext";
 
-function ProductItem({ product, name, brand, stock, index }) {
-  const { cart, handleAddToCart, handleIncreaseQuantity } = useFood();
+function ProductItem({ name, brand, stock, product }) {
+    const { cart, handleAddToCart, handleIncreaseQuantity } = useFood();
 
-  function addItem(product) {
-    const itemAlreadyExists = cart.some(
-      (item) => item.productName === product.description
-    );
-    console.log(product);
-    console.log(itemAlreadyExists);
-    if (itemAlreadyExists) {
-      handleIncreaseQuantity(product);
-    } else {
-      handleAddToCart(product);
-      console.log(product);
+    function addItem(product) {
+        const itemAlreadyExists = cart.some(
+            (item) => item.productName === product.description
+        );
+        if (itemAlreadyExists) {
+            handleIncreaseQuantity(product);
+        } else {
+            handleAddToCart(product);
+            console.log(product);
+        }
     }
-  }
 
-  function calculateRemainingStock() {
-    const initialStock = stock;
-    let amountInCart = 0;
-    if (cart.length > 0 && cart[index]?.quantity) {
-      amountInCart = cart[index].quantity;
+    // This function takes the stock from state and calculates a derived state of
+    // the remaining stock using the original stock (saved in state) and subtracting
+    // from the amount in the cart. This results in it being impossible to add constraints
+    // on less than 0 stock being allowed.
+    function calculateRemainingStock() {
+        const identifiedItemIndex = cart.findIndex(
+            (item) => item.productName === name
+        );
+        let amountInCart = cart[identifiedItemIndex]
+            ? cart[identifiedItemIndex]?.quantity
+            : 0;
+        return stock - amountInCart;
     }
-    return stock - amountInCart;
-  }
 
-  const remainingStock = calculateRemainingStock();
+    const remainingStock = calculateRemainingStock();
 
   return (
     <section className="productIcon">

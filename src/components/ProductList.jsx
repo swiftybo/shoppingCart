@@ -1,32 +1,5 @@
 import ProductItem from "./ProductItem.jsx";
 
-const catalogue = [
-  {
-    productName: "Leek",
-    stock: 8,
-    individualCost: 0.9,
-    category: "vegetable",
-  },
-  {
-    productName: "Broccoli",
-    stock: 15,
-    individualCost: 1.5,
-    category: "vegetable",
-  },
-  {
-    productName: "Golden Kiwi",
-    stock: 8,
-    individualCost: 2.15,
-    category: "fruit",
-  },
-  {
-    productName: "Croissant",
-    stock: 20,
-    individualCost: 0.5,
-    category: "bread",
-  },
-];
-
 function ProductList({ productList }) {
   return (
     <>
