@@ -32,7 +32,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route index element={<HomePage productList={productList} />} />
-            <Route path="cart" element={<ShoppingCartPage />} />
+            <Route
+              path="cart"
+              element={<ShoppingCartPage productList={productList} />}
+            />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>

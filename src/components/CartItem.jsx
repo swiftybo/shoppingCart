@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFood } from "../contexts/FoodContext";
 import { useEffect } from "react";
 
-function CartItem({ item, name, quantity, individualCost }) {
+function CartItem({ item, name, quantity, individualCost, productStock }) {
   const [quantityInput, setQuantityInput] = useState(quantity);
   const { handleIncreaseQuantity, setProductQuantity, handleDecreaseQuantity } =
     useFood();
@@ -36,6 +36,9 @@ function CartItem({ item, name, quantity, individualCost }) {
         <p className="color-grey">£{individualCost} each</p>
       </div>
       <div className="cart-product-numbers">
+        <div className="no-stock-div">
+          {quantity >= productStock ? "No more stock" : ""}
+        </div>
         <button
           className="cart-button"
           onClick={() => handleDecreaseQuantity(item)}
@@ -54,6 +57,7 @@ function CartItem({ item, name, quantity, individualCost }) {
         <button
           className="cart-button"
           onClick={() => handleIncreaseQuantity(item)}
+          disabled={quantity >= productStock}
         >
           +
         </button>
