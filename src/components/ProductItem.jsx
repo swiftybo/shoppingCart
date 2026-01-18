@@ -1,6 +1,6 @@
 import { useFood } from "../contexts/FoodContext";
 
-function ProductItem({ name, brand, stock, product }) {
+function ProductItem({ name, stock, product, price }) {
   const { cart, handleAddToCart, handleIncreaseQuantity } = useFood();
 
   function addItem(product) {
@@ -35,23 +35,28 @@ function ProductItem({ name, brand, stock, product }) {
   return (
     <section className="productIcon">
       <div className="productIcon-left">
-        <h2>{name}</h2>
-        <h3>{brand}</h3>
-      </div>
-      <div className="productIcon-right">
-        <button
-          className="productIcon_btn product-list-button"
-          onClick={() => addItem(product)}
-        >
-          Add to Cart
-        </button>
-        <p>{`Stock: ${remainingStock}`}</p>
+        <h3>{name}</h3>
+        <p>£{price}.00</p>
+        <p className="color-grey">
+          {remainingStock === 0 ? "Out of stock" : `${remainingStock} in stock`}
+        </p>
         {remainingStock <= 5 && remainingStock > 2 && (
           <div className="productIcon-stock">Almost Gone!</div>
         )}
         {remainingStock <= 2 && (
           <div className="productIcon-stock">Last Few in Stock!</div>
         )}
+      </div>
+      <div className="productIcon-right">
+        <button
+          className={`${
+            remainingStock === 0 && "disabled-button"
+          } productIcon_btn product-list-button`}
+          onClick={() => addItem(product)}
+          disabled={remainingStock === 0}
+        >
+          {remainingStock === 0 ? "Out of Stock" : "Add to Cart"}
+        </button>
       </div>
     </section>
   );

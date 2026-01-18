@@ -5,7 +5,9 @@ export default function HomePage({ productList }) {
   return (
     <>
       <Header />
-      <ProductList productList={productList} />
+      <div className="main-content">
+        <ProductList productList={productList} />
+      </div>
     </>
   );
 }

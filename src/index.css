@@ -9,13 +9,30 @@
 h2 {
   font-size: 32px;
 }
+
+a {
+  text-decoration: none;
+}
+
+.main-content {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.products-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .productIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 1rem;
   margin: 1rem;
-  display: flex;
-  justify-content: space-between;
-  width: 35vw;
-  border: solid 1px black;
+  min-width: 0;
+  min-height: 5rem;
+  border: solid 1px rgb(198, 198, 198);
   border-radius: 0.5rem;
 }
 
@@ -27,9 +44,6 @@ h2 {
 
 .productIcon-right {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .productIcon_btn {
@@ -54,18 +68,25 @@ h2 {
 .header-cart-container {
   display: flex;
   justify-content: flex-end;
+  width: fit-content;
   gap: 8px;
   padding: 16px;
 }
 
 .product-list-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   background-color: black;
+  text-align: center;
   color: white;
   border-radius: 5px;
   padding: 5px;
+  width: 100%;
 }
 
-.product-list-button:hover {
+.product-list-button:hover:not(:disabled) {
   background-color: rgb(42, 42, 42);
 }
 
@@ -169,4 +190,12 @@ ol {
 
 button {
   cursor: pointer;
+}
+
+.disabled-button {
+  background-color: rgba(94, 94, 94, 0.834);
+}
+
+.disabled-button:hover {
+  cursor: default;
 }
