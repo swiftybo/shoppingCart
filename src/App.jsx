@@ -17,7 +17,7 @@ function App() {
       const newFood = food.map((foodItem) => ({
         ...foodItem,
         individualCost: Math.floor(Math.random() * 10) + 1,
-        stock: Math.floor(Math.random() * 10) + 1,
+        stock: Math.floor(Math.random() * 10),
       }));
       setProductList(newFood);
       console.log(newFood);
