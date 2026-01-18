@@ -151,6 +151,12 @@ ol {
 .no-stock-div {
   color: red;
 }
+
+.empty-cart {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
 /* */
 
 .text-normal {

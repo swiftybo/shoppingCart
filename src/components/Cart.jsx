@@ -46,7 +46,12 @@ function Cart({ productList }) {
           </div>
         </div>
       ) : (
-        <div className="empty-cart">Empty</div>
+        <div className="empty-cart">
+          <p className="color-grey">Your cart is empty</p>
+          <button onClick={() => navigate("/")} className="product-list-button">
+            Continue Shopping
+          </button>
+        </div>
       )}
     </>
   );
