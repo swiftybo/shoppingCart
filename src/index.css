@@ -25,6 +25,7 @@ a {
 }
 
 .productIcon {
+    box-shadow: 2px 2px 2px 2px #4c4c4c;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
