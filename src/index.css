@@ -15,7 +15,11 @@ a {
     margin: 0 auto;
 }
 
-.products-list {
+.productlist_header {
+    margin: 2rem 0rem 0rem 1rem;
+}
+
+.productlist {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -57,15 +61,13 @@ a {
 
 .header {
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
 }
 
 .header_name {
     font-size: 4rem;
-    color: blue;
+    color: rgb(5, 5, 107);
     margin: 0;
-    margin-left: 45vw;
+    margin-left: 35vw;
 }
 
 .header-cart-container {
