@@ -1,201 +1,206 @@
-.header_name {
-  font-size: 6rem;
-}
-
 * {
-  font-family: "Inter", "Poppins", "Rubik";
+    font-family: "Inter", "Poppins", "Rubik";
 }
 
 h2 {
-  font-size: 32px;
+    font-size: 32px;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .main-content {
-  width: 80vw;
-  margin: 0 auto;
+    width: 80vw;
+    margin: 0 auto;
 }
 
 .products-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .productIcon {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1rem;
-  margin: 1rem;
-  min-width: 0;
-  min-height: 5rem;
-  border: solid 1px rgb(198, 198, 198);
-  border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 1rem;
+    min-width: 0;
+    min-height: 5rem;
+    border: solid 1px rgb(198, 198, 198);
+    border-radius: 0.5rem;
 }
 
 .productIcon-left {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
 }
 
 .productIcon-right {
-  display: flex;
+    display: flex;
 }
 
 .productIcon_btn {
-  margin: 1rem;
-  height: 2rem;
-  width: 6rem;
-  border: 0px;
-  border-radius: 0.5rem;
-  background-color: rgb(196, 193, 193);
+    margin: 1rem;
+    height: 2rem;
+    width: 6rem;
+    border: 0px;
+    border-radius: 0.5rem;
+    background-color: rgb(196, 193, 193);
 }
 
 .productIcon-stock {
-  color: red;
+    color: red;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.header_name {
+    font-size: 4rem;
+    color: blue;
+    margin: 0;
+    margin-left: 45vw;
 }
 
 .header-cart-container {
-  display: flex;
-  justify-content: flex-end;
-  width: fit-content;
-  gap: 8px;
-  padding: 16px;
+    margin-left: auto;
+    margin-right: 10vw;
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+    gap: 8px;
+    padding: 16px;
 }
 
 .product-list-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  background-color: black;
-  text-align: center;
-  color: white;
-  border-radius: 5px;
-  padding: 5px;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
 }
 
 .product-list-button:hover:not(:disabled) {
-  background-color: rgb(42, 42, 42);
+    background-color: rgb(42, 42, 42);
 }
 
 /* Shopping Cart Page */
 
 .shopping-page {
-  margin: 0 160px;
+    margin: 0 160px;
 }
 
 .shopping-cart {
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  gap: 10px;
-  padding: 0px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    gap: 10px;
+    padding: 0px;
 }
 
 .cart-headers {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100px;
 }
 
 .cartProduct-item {
-  display: flex;
-  border: 1px solid rgba(128, 128, 128, 0.293);
-  border-radius: 10px;
-  padding: 10px;
+    display: flex;
+    border: 1px solid rgba(128, 128, 128, 0.293);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 ol {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .cart-product-numbers {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 20px;
 }
 
 .cart-item-quantity {
-  border: none;
-  width: 50px;
-  text-align: center;
+    border: none;
+    width: 50px;
+    text-align: center;
 }
 
 .cart-button {
-  all: unset;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 30px;
-  min-width: 30px;
-  padding: 0 5px;
-  border: 1px solid rgba(128, 128, 128, 0.356);
-  border-radius: 5px;
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 30px;
+    min-width: 30px;
+    padding: 0 5px;
+    border: 1px solid rgba(128, 128, 128, 0.356);
+    border-radius: 5px;
 }
 
 .cart-button:hover {
-  background-color: rgb(224, 224, 224);
+    background-color: rgb(224, 224, 224);
 }
 
 .cart-total-item-cost {
-  width: 30px;
-  padding: 0 25px;
+    width: 30px;
+    padding: 0 25px;
 }
 
 .divider {
-  height: 1px;
-  margin-top: 50px;
-  background-color: grey;
+    height: 1px;
+    margin-top: 50px;
+    background-color: grey;
 }
 
 .totals-row {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .no-stock-div {
-  color: red;
+    color: red;
 }
 
 .empty-cart {
-  width: 500px;
-  margin: 0 auto;
-  text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
 }
 /* */
 
 .text-normal {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 .color-grey {
-  color: rgb(90, 90, 90);
+    color: rgb(90, 90, 90);
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .disabled-button {
-  background-color: rgba(94, 94, 94, 0.834);
+    background-color: rgba(94, 94, 94, 0.834);
 }
 
 .disabled-button:hover {
-  cursor: default;
+    cursor: default;
 }
