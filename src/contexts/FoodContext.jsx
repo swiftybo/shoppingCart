@@ -12,7 +12,7 @@ function reducer(state, action) {
             return [
                 ...state,
                 {
-                    description: description,
+                    description,
                     quantity: 1,
                     price: individualCost,
                 },
