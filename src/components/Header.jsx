@@ -14,7 +14,7 @@ function Header() {
     return (
         <div className="header">
             <NavLink to={"/"} end>
-                <h1 className="header_name">CJ's</h1>
+                <h1 className="header_name">🛍️ CJ's 🛍️</h1>
             </NavLink>
             <div className="header-cart-container">
                 <Link to={"/cart"}>
