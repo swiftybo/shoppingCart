@@ -33,9 +33,9 @@ function ProductItem({ name, stock, product, price }) {
 
     return (
         <section className="productIcon">
-            <div className="productIcon-left">
-                <h3>{name}</h3>
-                <p>£{price}.00</p>
+            <div className="productIcon-top">
+                <h3 className="productIcon-header">{name}</h3>
+                <p className="productIcon-price">£{price}.00</p>
                 <p className="color-grey">
                     {remainingStock === 0
                         ? "Out of stock"
@@ -48,7 +48,7 @@ function ProductItem({ name, stock, product, price }) {
                     <div className="productIcon-stock">Last Few in Stock!</div>
                 )}
             </div>
-            <div className="productIcon-right">
+            <div className="productIcon-bottom">
                 <button
                     className={`${
                         remainingStock === 0 && "disabled-button"

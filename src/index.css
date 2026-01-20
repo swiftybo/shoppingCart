@@ -1,5 +1,9 @@
 * {
+    margin: 0;
     font-family: "Inter", "Poppins", "Rubik";
+}
+
+#root {
 }
 
 h2 {
@@ -37,13 +41,18 @@ a {
     border-radius: 0.5rem;
 }
 
-.productIcon-left {
+.productIcon-top {
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
 }
 
-.productIcon-right {
+.productIcon-header,
+.productIcon-price {
+    margin: 1rem 0rem;
+}
+
+.productIcon-bottom {
     display: flex;
 }
 
