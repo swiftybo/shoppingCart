@@ -6,14 +6,13 @@ const initialState = [];
 
 function reducer(state, action) {
     const { description, individualCost } = action.payload;
-    console.log(action.payload);
     switch (action.type) {
         // Add a new object with the action.payload being the name of the product to the shopping cart state array
         case "add_product":
             return [
                 ...state,
                 {
-                    productName: description,
+                    description: description,
                     quantity: 1,
                     price: individualCost,
                 },
@@ -22,8 +21,9 @@ function reducer(state, action) {
         // Increase the cart quantity by using the button
         case "increase_quantity": {
             // Iterates through the shopping cart state array to find a match for a specific product, e.g. apple
+            console.log(state);
             const newState = state.map((product) => {
-                if (product.productName === action.payload.productName) {
+                if (product.description === action.payload.description) {
                     // Updates the quantity of the desired product by 1
                     return {
                         ...product,
@@ -42,7 +42,7 @@ function reducer(state, action) {
             // Iterates through the shopping cart state array to find a match for a specific product, e.g. apple
             const newState = state
                 .map((product) => {
-                    if (product.productName === action.payload.productName) {
+                    if (product.description === action.payload.description) {
                         // Updates the quantity of the desired product by 1
                         return {
                             ...product,
@@ -62,18 +62,18 @@ function reducer(state, action) {
         case "set_product_quantity": {
             // Iterates through the shopping cart state array to find a match for a specific product, e.g. apple
             const newState = state.map((product) => {
-                if (product.productName === action.payload.name) {
+                if (product.description === action.payload.name) {
                     if (action.payload.newQuantity <= 0) {
                         const newState = state.map((product) => {
                             if (
-                                product.productName ===
-                                action.payload.productName
+                                product.description ===
+                                action.payload.description
                             ) {
                                 // If the product quantity reaches 0, then it removes it from the cart state
                                 const filteredCart = state.cart.filter(
                                     (cartItem) =>
-                                        cartItem.productname ===
-                                        action.payload.productname,
+                                        cartItem.description ===
+                                        action.payload.description,
                                 );
                                 console.log(filteredCart);
                             }
@@ -112,7 +112,6 @@ function FoodProvider({ children }) {
 
     // Removes the product from the state, for example when the user decrease the quantity to 0 in the cart
     function handleRemoveFromCart(product) {
-        console.log("removed");
         dispatch({ type: "remove_product", payload: product });
     }
 

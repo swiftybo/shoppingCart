@@ -6,13 +6,12 @@ function ProductItem({ name, stock, product, price }) {
     function addItem(product) {
         console.log(product);
         const itemAlreadyExists = cart.some(
-            (item) => item.productName === product.description,
+            (item) => item.description === product.description,
         );
         if (itemAlreadyExists) {
             handleIncreaseQuantity(product);
         } else {
             handleAddToCart(product);
-            console.log(product);
         }
     }
 
@@ -22,7 +21,7 @@ function ProductItem({ name, stock, product, price }) {
     // on less than 0 stock being allowed.
     function calculateRemainingStock() {
         const identifiedItemIndex = cart.findIndex(
-            (item) => item.productName === name,
+            (item) => item.description === name,
         );
         let amountInCart = cart[identifiedItemIndex]
             ? cart[identifiedItemIndex]?.quantity
