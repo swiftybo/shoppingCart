@@ -1,6 +1,12 @@
 # Shopping Cart
 
-A collaborative project between Christian Yarwood (christianyarwood62) and Jordan Leung (swiftybo) to develop a simple shopping cart web application. This project was primarily to understand the workflow when working collaboratively using Git and GitHub. This project has taught us key features including branches, merging conflicts and using GitHub as our "Source of Truth". Additionally, we have learned how to use commands like "git merge", "git pull" and "git push" together with branches to keep our "Source of Truth" clean.
+A collaborative project between Christian Yarwood (christianyarwood62) and Jordan Leung (swiftybo) to develop a simple shopping cart web application. This main learning outcome of this project was to move past solo developemnt and understand the workflow when working collaboratively with other developers using Git and GitHub.
+
+Throughout the development process, we gained experience with:
+- **Branch Management:** Utilising branches to develop components in isolation, ensuring the main codebase remained stable.
+- **Conflict Resolution:** Learning to identify, navigate, and resolve merge conflicts efficiently.
+- **Version Control Commands:** Practising essential git commands including git pull, git push & git merge to maintain a seamless workflow.
+- **Remote Synchronization:** Understanding how to keep our local environments aligned with the remote repository to prevent data loss or code regression.
 
 ## 🚀 Overview
 
